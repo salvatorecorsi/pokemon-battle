@@ -1,9 +1,13 @@
-import { useState, useEffect, useContext } from 'react'
-import { SelectedPokemonContext } from './../stores/SelectedPokemonContext';
 import './Card.scss'
+
 import classNames from 'classnames';
+import { useSelector, useDispatch } from 'react-redux';
+import { engagePokemon, disengagePokemon } from './../redux/userSlice';
 
 const Card = ({pokemon, id}) => {
+
+	const dispatch = useDispatch();
+
 	const getStatColor = (stat) => {
 		const value = stat.base_stat;
 		if (value <= 50) {
@@ -14,15 +18,21 @@ const Card = ({pokemon, id}) => {
 			return 'green';
 		}
 	}
-	const {selectedPokemon, setSelectedPokemon} = useContext(SelectedPokemonContext);
+
+	const engagedPokemon = useSelector(state => state.user.engagedPokemon);
 
 	const togglePokemon = () => {
-		setSelectedPokemon([].concat(id));
+		const index = engagedPokemon.findIndex(pokemon => pokemon.id === id);
+		if (index === -1) {
+			dispatch(engagePokemon([...engagedPokemon, {id, name: pokemon.name}]));
+		} else {
+			dispatch(disengagePokemon(id));
+		}
 	}
 
 	const cardClasses = classNames({
 		card: true,
-		selected: selectedPokemon.includes(id)
+		engaged: engagedPokemon.findIndex(pokemon => pokemon.id === id) > -1
 	});
 
 	return (

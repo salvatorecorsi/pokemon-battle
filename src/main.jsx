@@ -11,10 +11,14 @@ import { Provider } from 'react-redux'
 const router = createBrowserRouter([
 	{
 		path: '/',
+		element: <App />
+	},
+	{
+		path: '/choose-pokemon',
 		element: <ChoosePokemon />
 	},
 	{
-		path: '/battle/:pokemon',
+		path: '/battle',
 		element: <Battle />
 	}
 ])

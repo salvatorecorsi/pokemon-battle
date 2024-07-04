@@ -12,4 +12,5 @@ export const pokemonListSlice = createSlice({
 	},
 });
 
+export const {setPokemonList} = pokemonListSlice.actions;
 export const pokemonListReducer = pokemonListSlice.reducer;

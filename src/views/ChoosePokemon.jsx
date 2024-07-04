@@ -1,29 +1,25 @@
-import { useState, useEffect, useReducer, useContext } from 'react'
-import { SelectedPokemonContext } from './../stores/SelectedPokemonContext';
-import Card from './../components/Card'
 import './ChoosePokemon.scss'
-import axios from 'axios'
+import Card from './../components/Card'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function ChoosePokemon() {
-	const numberOfPokemon = 10;
-	const offsetPokemon = 50;
-	const [selectedPokemon, setSelectedPokemon] = useState([]);
-
-	const startFight = () => {
-		// go to battle view using id as parameter, using the router
-	};
+	const pokemonList = useSelector(state => state.pokemonList.value);
+	const navigate = useNavigate();
+	
+	if (pokemonList.length === 0) {
+		navigate('/');
+	}
 
 	return (
 		<>
-			<SelectedPokemonContext.Provider value={{selectedPokemon, setSelectedPokemon}}>
-				<div className="cards">
-					{pokemonList.map((pokemon, index) => (
-						<Card pokemon={pokemon} id={index} key={index} />
-					))}
-				</div>
-			</SelectedPokemonContext.Provider>
-			<Link to={'/battle'}><button className="startfight" onClick={startFight}>Fight</button></Link>
+			<div className="cards">
+				{pokemonList.map((pokemon, index) => (
+					<Card pokemon={pokemon} id={index} key={index} />
+				))}
+			</div>
+			<Link to={'/battle'}><button className="startfight" onClick={navigate('/battle')}>Fight</button></Link>
 		</>
 	)
 }
