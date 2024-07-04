@@ -1,0 +1,34 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	border: 1px solid #000;
+	border-radius: 0.5rem;
+	position: relative;
+	cursor: pointer;
+	transition: 1s all;
+
+	&::before {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: rgba(255,255,255,0.3);
+		opacity: 0;
+		transition: 0.3s all;
+	}
+
+	&.selected {
+		background: #66b766 !important;
+	}
+	img {
+		image-rendering: pixelated;
+	}
+
+	&:hover {
+		transform: rotate3d(1,1,1,10deg);
+		&::before {
+			opacity: 1;
+		}
+	}
+
+}

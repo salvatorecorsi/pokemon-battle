@@ -1,0 +1,34 @@
+.cards {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	gap: 1rem;
+	max-width: 1280px;
+	width: 90%;
+	margin: 2rem auto;
+}
+.startfight {
+	font-family: 'Roboto', sans-serif;
+	position: fixed;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #fff333;
+	font-weight: bold;
+	text-align: center;
+	color: black;
+	padding: 1rem 2rem;
+	border: 0;
+	font-size: 2rem;
+	text-transform: uppercase;
+	box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+	cursor: pointer;
+	z-index: 10;
+	border-radius: 50px;
+	transition: 0.3s all;
+	&:hover {
+		background: #fff;
+		transform: scale(1.3) translateX(-50%);
+		transform-origin: left top;
+		
+	}
+}
