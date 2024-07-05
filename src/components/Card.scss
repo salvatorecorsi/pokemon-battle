@@ -17,6 +17,10 @@
 		transition: 0.3s all;
 	}
 
+	h2 {
+		text-transform: capitalize;
+	}
+
 	&.engaged {
 		background: #66b766 !important;
 	}

@@ -1,7 +1,8 @@
+import './Battle.scss';
 import { useState, useEffect, useReducer, useContext } from 'react'
 
 import { useSelector } from 'react-redux';
-import Card from './../components/Card';
+import Pokemon from './../components/Pokemon';
 
 function Battle() {
 
@@ -20,20 +21,15 @@ function Battle() {
 	}
 
 	console.log(chooseRandomPokemon());
-	console.log(engagedPokemon);
 
 	return (
 		<>
-			<div className="cards">
-				{engagedPokemon.map((pokemon, index) => (
-					<Card pokemon={pokemon} id={index} key={index} />
-				))}
-			</div>
-			vs
-			<div className="cards">
-				{chooseRandomPokemon().map((pokemon, index) => (
-					<Card pokemon={pokemon} id={index} key={index} />
-				))}
+			<div className="battle">
+				{engagedPokemon.map((pokemon, index) => {
+					return (
+						<Pokemon key={index} pokemon={pokemon} />
+					)
+				})}
 			</div>
 		</>
 	)

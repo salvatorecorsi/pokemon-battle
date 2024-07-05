@@ -24,7 +24,7 @@ const Card = ({pokemon, id}) => {
 	const togglePokemon = () => {
 		const index = engagedPokemon.findIndex(pokemon => pokemon.id === id);
 		if (index === -1) {
-			dispatch(engagePokemon([...engagedPokemon, {id, name: pokemon.name}]));
+			dispatch(engagePokemon(pokemon));
 		} else {
 			dispatch(disengagePokemon(id));
 		}

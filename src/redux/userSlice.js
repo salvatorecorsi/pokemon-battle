@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { useSelector } from 'react-redux';
 
 export const userSlice = createSlice({
 	name: 'userSlice',
@@ -17,7 +18,7 @@ export const userSlice = createSlice({
 			state.value = state.value.filter((pokemon) => pokemon.id !== action.payload);
 		},
 		engagePokemon: (state, action) => {
-			state.engagedPokemon = action.payload;
+			state.engagedPokemon.push(action.payload);
 		},
 		disengagePokemon: (state, action) => {
 			state.engagedPokemon = state.engagedPokemon.filter((pokemon) => pokemon.id !== action.payload);

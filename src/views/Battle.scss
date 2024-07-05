@@ -1,0 +1,27 @@
+.battle {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #fff333;
+
+    .vs {
+        font-size: 3rem;
+        font-weight: bold;
+    }
+
+    .pokemon-group {
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 90%;
+        transform: rotateY(180deg);
+    
+        &.enemies {
+            transform: rotateY(0deg);
+        }
+    }
+}

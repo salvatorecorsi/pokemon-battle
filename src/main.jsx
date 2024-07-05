@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import './Main.scss'
 import ChoosePokemon from './views/ChoosePokemon.jsx';
 import Battle from './views/Battle.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
